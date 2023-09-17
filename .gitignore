@@ -2,7 +2,7 @@
 .project
 
 .settings/
-/target/
+target/
 
 # mac
 .DS_Store
