@@ -1,6 +1,6 @@
 Feature: Add Education
 
-  @ui @headless
+  @ui
   Scenario: Positive Test
     Given user is logged in
       | email    | hui-pretender@outlook.com |
@@ -17,7 +17,7 @@ Feature: Add Education
       | error               |                                              |
     Then user sees a newly added [Education] on Dashboard page
 
-  @ui @headless
+  @ui
   Scenario: Add an education and then delete the education
     Given user is logged in
       | email    | hui-pretender@outlook.com |
@@ -35,7 +35,7 @@ Feature: Add Education
     Then user sees a newly added [Education] on Dashboard page
     And user deletes the newly added [Education] on Dashboard page
 
-  @ui @headless
+  @ui
   Scenario Outline: Negative Test
     Given user is logged in
       | email    | hui-pretender@outlook.com |

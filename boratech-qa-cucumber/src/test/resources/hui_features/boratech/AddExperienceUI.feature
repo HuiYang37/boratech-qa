@@ -5,7 +5,7 @@ Feature: Add Experience
       | email    | hui-pretender@outlook.com |
       | password | Hui123456                 |
 
-  @ui @headless
+  @ui
   Scenario: Positive Test
     #Given user is logged in
     #| email    | hui-pretender@outlook.com |
@@ -22,7 +22,7 @@ Feature: Add Experience
       | error           |                     |
     Then user sees a newly added [Experience] on Dashboard page
 
-  @ui @headless
+  @ui
   Scenario: Add an experience and then delete the experience
     #Given user is logged in
     #| email    | hui-pretender@outlook.com |
@@ -40,7 +40,7 @@ Feature: Add Experience
     Then user sees a newly added [Experience] on Dashboard page
     And user deletes the newly added [Experience] on Dashboard page
 
-  @ui @headless
+  @ui
   Scenario Outline: Negative Test
     #Given user is logged in
     #| email    | hui-pretender@outlook.com |

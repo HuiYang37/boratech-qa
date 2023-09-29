@@ -5,14 +5,14 @@ Feature: Delete Functionality
       | email    | hui-pretender@outlook.com |
       | password | Hui123456                 |
 
-  @api
+  @api @cleanup
   Scenario: API - Delete Experience
     Then user deletes all experiences
 
-  @api
+  @api @cleanup
   Scenario: API - Delete Education
     Then user deletes all educations
 
-  @api
+  @api @cleanup
   Scenario: API - Delete Education
     Then user deletes all posts

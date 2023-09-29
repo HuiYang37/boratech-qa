@@ -1,5 +1,8 @@
 package hui_automation.steps.ui;
 
+import java.util.Properties;
+
+import hui_automation.utilities.BrowserConfig;
 import hui_automation.utilities.DataManager;
 import hui_automation.utilities.DriverManager;
 import hui_automation.utilities.PageManager;
@@ -8,31 +11,19 @@ import io.cucumber.java.Before;
 
 public class Hooks {
 
-	@Before(order = 0, value = "@Headless or @headless")
-	public void setHeadless() {
-		DriverManager.setHeadless(true);
-		System.out.println("Running headless...");
+	@Before(order = 0, value = "@UI or @ui or @E2E or @e2e")
+	public void setBrowser() {
+		Properties p = BrowserConfig.getProperties();
+		String headlessStr = p.getProperty("headless");
+		if (Boolean.valueOf(headlessStr)) {
+			DriverManager.setHeadless(true);
+			System.out.println("Running headless chrome...");
+		} else {
+			DriverManager.setBrowserName(p.getProperty("browser"));
+		}
 	}
 
-	@Before(order = 1, value = "@Chrome or @chrome")
-	public void setChrome() {
-		DriverManager.setBrowserName("chrome");
-		System.out.println("Open Chrome...");
-	}
-
-	@Before(order = 2, value = "@Edge or @edge")
-	public void setEdge() {
-		DriverManager.setBrowserName("edge");
-		System.out.println("Open Edge...");
-	}
-
-//	@Before(order = 2, value = "@Firefox or @firefox")
-//	public void setupFirefox() {
-//		Configuration.config("browser", "firefox");
-//		System.out.println("Open Firefox...");
-//	}
-
-	@Before(order = 4, value = "@UI or @ui or @E2E or @e2e or @Chrome or @chrome or @Edge or @edge or @Firefox or @firefox")
+	@Before(order = 1, value = "@UI or @ui or @E2E or @e2e")
 	public void powerUp() {
 		DriverManager.getInstance();
 		DataManager.getInstance();
@@ -40,7 +31,7 @@ public class Hooks {
 		System.out.println("Power up driver...");
 	}
 
-	@After("@UI or @ui or @E2E or @e2e or @Chrome or @chrome or @Edge or @edge or @Firefox or @firefox")
+	@After("@UI or @ui or @E2E or @e2e")
 	public void tearDown() {
 		DriverManager.reset();
 		DataManager.reset();
