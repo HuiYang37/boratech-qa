@@ -38,14 +38,15 @@ public class BoraTechAPIs {
 		return token;
 	}
 
-	public static String badLogin(String email, String password) {
+	public static String negativeLogin(String email, String password) {
 		String endpoint = "/api/auth";
 		RestAssured.baseURI = "https://boratech-practice-app.onrender.com";
 		RequestSpecification request = RestAssured.given();
 
 		HashMap<String, String> body = new HashMap<>();
-		body.put("email", email);
-		body.put("password", password);
+
+		body.put("email", email == null ? "" : email);
+		body.put("password", password == null ? "" : password);
 
 		request.body(body);
 		request.header("Content-Type", "application/json");

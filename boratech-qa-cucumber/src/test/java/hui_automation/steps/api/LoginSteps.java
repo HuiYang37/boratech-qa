@@ -14,7 +14,7 @@ public class LoginSteps {
 	public void api_user_enters_wrong_credentials(DataTable dataTable) {
 		String email = dataTable.asMap().get("email");
 		String password = dataTable.asMap().get("password");
-		this.loginErrorMsg = BoraTechAPIs.badLogin(email, password);
+		this.loginErrorMsg = BoraTechAPIs.negativeLogin(email, password);
 	}
 
 	@Then("[API] user should receive login errors")

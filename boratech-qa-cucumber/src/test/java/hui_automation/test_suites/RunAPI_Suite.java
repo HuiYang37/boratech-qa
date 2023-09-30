@@ -10,7 +10,8 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("hui_features")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html_reports/index.html")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "hui_automation.steps.api")
-@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@api and @hero")
-public class RunAPI_Suite {}
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html_reports/index.html, json:target/json_reports/index.json")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@api and @login")
+public class RunAPI_Suite {
+}
