@@ -106,12 +106,6 @@
 			<version>2.10.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>net.masterthought</groupId>
-			<artifactId>cucumber-reporting</artifactId>
-			<version>5.7.6</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -121,33 +115,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.1.2</version>
-				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.7.6</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>boratech-qa-cucumber</projectName>
-							<skip>false</skip>
-							<outputDirectory>${project.build.directory}</outputDirectory>
-							<inputDirectory>${project.build.directory}</inputDirectory>
-							<jsonFiles>
-								<param>**/*.json</param>
-							</jsonFiles>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 		</plugins>
