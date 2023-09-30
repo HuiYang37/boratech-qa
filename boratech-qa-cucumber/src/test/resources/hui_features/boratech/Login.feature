@@ -37,7 +37,7 @@ Feature: Login
       | error | <error> |
 
     Examples: 
-      | email                         | password | error                |
-      | someone.some@email.domain.com |          | Password is required |
-      |                               |          | Email is required    |
-      |                               |   123456 | Email is required    |
+      | email                         | password | error               |
+      | someone.some@email.domain.com |          | Invalid credentials |
+      |                               |          | Invalid email       |
+      |                               |   123456 | Invalid email       |
