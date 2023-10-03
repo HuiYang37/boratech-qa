@@ -11,7 +11,7 @@ public class DriverManager {
 	private static boolean headless;
 
 	private DriverManager() {
-	};
+	}
 
 	public static WebDriver getInstance() {
 		if (threadLocalDriver == null)
