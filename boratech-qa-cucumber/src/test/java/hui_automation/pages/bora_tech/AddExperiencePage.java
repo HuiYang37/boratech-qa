@@ -19,7 +19,6 @@ import hui_automation.pojos.Experience;
 
 public class AddExperiencePage {
 
-	private WebDriver driver;
 	private WebDriverWait wait;
 
 	private final String URL = "https://boratech-practice-app.onrender.com/add-experience";
@@ -58,7 +57,6 @@ public class AddExperiencePage {
 	private Experience experience;
 
 	public AddExperiencePage(WebDriver driver) {
-		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}

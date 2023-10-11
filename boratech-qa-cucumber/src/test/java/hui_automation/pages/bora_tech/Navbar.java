@@ -7,9 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Navbar {
 
-	// Local Variables
-	private WebDriver driver;
-
 	// Elements
 	@FindBy(xpath = "//a[@href='/']")
 	private WebElement homeLink;
@@ -28,7 +25,6 @@ public class Navbar {
 
 	// Constructor
 	public Navbar(WebDriver driver) {
-		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 

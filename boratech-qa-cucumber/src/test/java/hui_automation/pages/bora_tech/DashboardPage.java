@@ -20,7 +20,6 @@ import hui_automation.pojos.Experience;
 public class DashboardPage {
 
 	// Local Variables
-	private WebDriver driver;
 	private WebDriverWait wait;
 	private final String URL = "https://boratech-practice-app.onrender.com/dashboard";
 	private final String TITLE_TEXT = "Dashboard";
@@ -51,7 +50,6 @@ public class DashboardPage {
 
 	// Constructor
 	public DashboardPage(WebDriver driver) {
-		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
@@ -95,7 +93,7 @@ public class DashboardPage {
 			}
 		}
 		assertTrue(targetAlertFound);
-		
+
 		// finding matching row
 		wait.until(ExpectedConditions.visibilityOfAllElements(experienceTableRows));
 		boolean targetFound = false;
@@ -122,7 +120,7 @@ public class DashboardPage {
 			}
 		}
 		assertTrue(targetAlertFound);
-		
+
 		// finding matching row
 		wait.until(ExpectedConditions.visibilityOfAllElements(educationTableRows));
 		boolean targetRowFound = false;
