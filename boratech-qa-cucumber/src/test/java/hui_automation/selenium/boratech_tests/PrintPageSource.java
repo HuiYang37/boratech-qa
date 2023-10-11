@@ -32,7 +32,7 @@ public class PrintPageSource {
 			driver.findElement(By.xpath(
 					"//h2[text()='Education Credentials']/following-sibling::table[1]/tbody/tr//button[@class='btn btn-danger']"))
 					.click();
-			Testkeys.pause(driver, 1);
+			Testkeys.pause(1);
 			page = driver.getPageSource();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +44,7 @@ public class PrintPageSource {
 
 	private static void printToFile(String page) {
 		try {
-			File pageFile = new File("./src/test/resources/html_to_examine/remove_education.html");
+			File pageFile = new File("./src/test/resources/failed_test.html");
 			FileWriter fw = new FileWriter(pageFile);
 			BufferedWriter bw = new BufferedWriter(fw);
 

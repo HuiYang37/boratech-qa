@@ -26,11 +26,11 @@ public class LoginTest {
 		try {
 			// home page
 			driver.get("https://boratech-practice-app.onrender.com/");
-			Testkeys.pause(driver, 2);
+			Testkeys.pause(2);
 
 			// login page
 			driver.findElement(By.xpath("//a[@href='/login'][contains(@class, 'btn')]")).click();
-			Testkeys.pause(driver, 2);
+			Testkeys.pause(2);
 
 			// user email and password
 			String email = "hui-pretender@outlook.com";
@@ -38,7 +38,7 @@ public class LoginTest {
 			driver.findElement(By.name("email")).sendKeys(email);
 			driver.findElement(By.name("password")).sendKeys(password);
 			driver.findElement(By.xpath("//input[@type='submit']")).click();
-			Testkeys.pause(driver, 2);
+			Testkeys.pause(2);
 
 			// check for dash board page
 			boolean urlFound = driver.getCurrentUrl().endsWith("dashboard");
@@ -46,7 +46,8 @@ public class LoginTest {
 			String title = driver.findElement(By.xpath("//h1[@class]")).getText();
 			Assertions.assertEquals("Dashboard", title);
 			System.out.println("Test passed.");
-		} catch (Exception e) {} finally {
+		} catch (Exception e) {
+		} finally {
 			driver.quit();
 		}
 
