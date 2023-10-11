@@ -39,21 +39,9 @@ public class Testkeys {
 		return output;
 	}
 
-	public static String getTimeStr() {
-		LocalDateTime present = LocalDateTime.now();
-		String timeStr = present.getYear() + "";
-		timeStr += present.getMonthValue();
-		timeStr += present.getDayOfMonth();
-		timeStr += present.getHour();
-		timeStr += present.getMinute();
-		timeStr += present.getSecond();
-		timeStr += present.getNano();
-		return timeStr;
-	}
-
 	public static String getTimestamp() {
-		String timeStr = Timestamp.valueOf(LocalDateTime.now()).getTime() + "";
-		return timeStr;
+		long time = Timestamp.valueOf(LocalDateTime.now()).getTime();
+		return String.valueOf(time);
 	}
 
 	public static boolean containsElement(WebDriver driver, By locator) {
@@ -65,8 +53,12 @@ public class Testkeys {
 		}
 	}
 
-	public static void pause(WebDriver driver, int sec) {
-		new Actions(driver).scrollByAmount(0, 0).pause(Duration.ofSeconds(sec)).build().perform();
+	public static void pause(int sec) {
+		try {
+			Thread.sleep(sec * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void jsClick(WebDriver driver, By locator) {
