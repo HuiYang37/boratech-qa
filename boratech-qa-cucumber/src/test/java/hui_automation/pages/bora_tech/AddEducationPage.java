@@ -19,7 +19,6 @@ import hui_automation.pojos.Education;
 
 public class AddEducationPage {
 
-	private WebDriver driver;
 	private WebDriverWait wait;
 
 	private final String URL = "https://boratech-practice-app.onrender.com/add-education";
@@ -58,7 +57,6 @@ public class AddEducationPage {
 	private Education education;
 
 	public AddEducationPage(WebDriver driver) {
-		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		PageFactory.initElements(driver, this);
 	}
