@@ -1,10 +1,7 @@
 package hui_automation.utilities;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.Properties;
-
-import org.junit.jupiter.api.Test;
 
 public class BrowserConfig {
 
@@ -18,36 +15,13 @@ public class BrowserConfig {
 		BrowserConfig.p = p;
 	}
 
-	public static Properties getProperties() {
+	public static Properties getBrowserData() {
 		try {
 			load();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return p;
-	}
-
-	@Test
-	public void reset() {
-		try {
-			load();
-			p.setProperty("browser", "chrome");
-			p.setProperty("headless", "false");
-			p.store(new FileOutputStream(FILE_PATH), "browser name has been set to chrome");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void setHeadless() {
-		try {
-			load();
-			p.setProperty("headless", "true");
-			p.store(new FileOutputStream(FILE_PATH), "set to run headless");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 }

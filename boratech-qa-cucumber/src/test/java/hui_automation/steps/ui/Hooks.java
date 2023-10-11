@@ -13,7 +13,7 @@ public class Hooks {
 
 	@Before(order = 0, value = "@UI or @ui or @E2E or @e2e")
 	public void setBrowser() {
-		Properties p = BrowserConfig.getProperties();
+		Properties p = BrowserConfig.getBrowserData();
 		String headlessStr = p.getProperty("headless");
 		if (Boolean.valueOf(headlessStr)) {
 			DriverManager.setHeadless(true);
