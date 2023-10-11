@@ -1,4 +1,4 @@
-package hui_automation.test_suites;
+package hui_automation.cucumber_test_suites;
 
 import static io.cucumber.junit.platform.engine.Constants.FILTER_TAGS_PROPERTY_NAME;
 import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;

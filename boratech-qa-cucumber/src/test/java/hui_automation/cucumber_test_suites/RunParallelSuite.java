@@ -1,4 +1,4 @@
-package hui_automation.test_suites;
+package hui_automation.cucumber_test_suites;
 
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.IncludeEngines;
