@@ -2,17 +2,25 @@ package hui_automation.steps.ui;
 
 import java.util.Properties;
 
+import org.openqa.selenium.WebDriver;
+
 import hui_automation.utilities.BrowserConfig;
 import hui_automation.utilities.DataManager;
 import hui_automation.utilities.DriverManager;
 import hui_automation.utilities.PageManager;
+import hui_automation.utilities.SeleniumJob;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class Hooks {
 
+	WebDriver driver;
+	SeleniumJob sj;
+
 	@Before(order = 0, value = "@UI or @ui or @E2E or @e2e")
-	public void setBrowser() {
+	public void configBrowser() {
 		Properties p = BrowserConfig.getBrowserData();
 		String headlessStr = p.getProperty("headless");
 		if (Boolean.valueOf(headlessStr)) {
@@ -24,19 +32,25 @@ public class Hooks {
 	}
 
 	@Before(order = 1, value = "@UI or @ui or @E2E or @e2e")
-	public void powerUp() {
-		DriverManager.getInstance();
+	public void setup() {
+		driver = DriverManager.getInstance();
+		sj = new SeleniumJob(driver);
 		DataManager.getInstance();
 		PageManager.getInstance();
-		System.out.println("Power up driver...");
 	}
 
 	@After("@UI or @ui or @E2E or @e2e")
-	public void tearDown() {
+	public void cleanup() {
 		DriverManager.reset();
 		DataManager.reset();
 		PageManager.reset();
-		System.out.println("Power down driver...");
+	}
+
+	@AfterStep("@stop")
+	public void didStepFail(Scenario scenario) {
+		if (scenario.isFailed()) {
+			sj.takeScreen(scenario);
+		}
 	}
 
 }

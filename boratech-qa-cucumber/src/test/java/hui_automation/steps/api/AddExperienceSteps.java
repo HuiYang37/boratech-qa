@@ -10,7 +10,7 @@ import hui_automation.api_pojos.Error;
 import hui_automation.api_pojos.Experience;
 import hui_automation.utilities.BoraTechAPIs;
 import hui_automation.utilities.DataManager;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
@@ -21,7 +21,7 @@ public class AddExperienceSteps {
 	@Then("[API] user adds a new [Experience]")
 	public void api_user_adds_a_new_experience(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMap();
-		Experience experience = new Experience(data.get("company") + " " + Testkeys.getTimestamp(), data.get("title"),
+		Experience experience = new Experience(data.get("company") + " " + TestUtils.getTimestamp(), data.get("title"),
 				data.get("location"), data.get("from"), data.get("to"), Boolean.parseBoolean(data.get("current")),
 				data.get("description"));
 		List<Experience> experiences = BoraTechAPIs.putExperience(dataManager.getToken(), experience);

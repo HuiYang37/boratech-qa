@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import hui_automation.utilities.DataManager;
 import hui_automation.utilities.PageManager;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,7 +25,7 @@ public class PostSteps {
 	@When("user enters the post content")
 	public void user_enters_the_post_content(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMaps().get(0);
-		String content = data.get("content") + " " + Testkeys.getTimestamp();
+		String content = data.get("content") + " " + TestUtils.getTimestamp();
 		pages.postsPage().writePost(content);
 	}
 

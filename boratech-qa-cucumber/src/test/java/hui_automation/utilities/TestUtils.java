@@ -19,7 +19,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Testkeys {
+public class TestUtils {
 
 	public static String getDateInput(LocalDate date, String dateInputPattern) {
 		return date.format(DateTimeFormatter.ofPattern(dateInputPattern));
