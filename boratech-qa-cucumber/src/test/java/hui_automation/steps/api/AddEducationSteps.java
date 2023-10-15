@@ -10,7 +10,7 @@ import hui_automation.api_pojos.Education;
 import hui_automation.api_pojos.Error;
 import hui_automation.utilities.BoraTechAPIs;
 import hui_automation.utilities.DataManager;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 
@@ -21,7 +21,7 @@ public class AddEducationSteps {
 	@Then("[API] user adds a new [Education]")
 	public void api_user_adds_a_new_education(DataTable dataTable) {
 		Map<String, String> data = dataTable.asMap();
-		Education education = new Education(data.get("school") + " " + Testkeys.getTimestamp(), data.get("degree"),
+		Education education = new Education(data.get("school") + " " + TestUtils.getTimestamp(), data.get("degree"),
 				data.get("fieldofstudy"), data.get("from"), data.get("to"), Boolean.parseBoolean(data.get("current")),
 				data.get("description"));
 		List<Education> educations = BoraTechAPIs.putEducation(dataManager.getToken(), education);

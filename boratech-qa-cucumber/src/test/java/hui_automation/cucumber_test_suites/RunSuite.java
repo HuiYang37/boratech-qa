@@ -13,6 +13,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "hui_automation.steps")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html_reports/cucumber.html, json:target/json_reports/cucumber.json")
 @ConfigurationParameter(key = PLUGIN_PUBLISH_ENABLED_PROPERTY_NAME, value = "true")
-@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@login")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@hero")
 public class RunSuite {
+
 }

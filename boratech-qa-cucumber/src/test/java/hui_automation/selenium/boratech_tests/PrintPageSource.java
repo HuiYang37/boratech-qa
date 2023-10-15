@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 import hui_automation.pages.bora_tech.LoginPage;
 import hui_automation.utilities.DriverFactory;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 
 public class PrintPageSource {
 
@@ -28,11 +28,11 @@ public class PrintPageSource {
 			driver.get("https://boratech-practice-app.onrender.com/login");
 			LoginPage loginPage = new LoginPage(driver);
 			loginPage.login("hui-pretender@outlook.com", "Hui123456");
-			Testkeys.waitUtilURL_Contains(driver, "dashboard", 5);
+			TestUtils.waitUtilURL_Contains(driver, "dashboard", 5);
 			driver.findElement(By.xpath(
 					"//h2[text()='Education Credentials']/following-sibling::table[1]/tbody/tr//button[@class='btn btn-danger']"))
 					.click();
-			Testkeys.pause(1);
+			TestUtils.pause(1);
 			page = driver.getPageSource();
 		} catch (Exception e) {
 			e.printStackTrace();

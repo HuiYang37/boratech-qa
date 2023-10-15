@@ -6,7 +6,7 @@ import java.util.Map;
 import hui_automation.pojos.Education;
 import hui_automation.utilities.DataManager;
 import hui_automation.utilities.PageManager;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,7 +28,7 @@ public class AddEducationSteps {
 		Map<String, String> data = dataTable.asMap();
 		Education education = new Education(data);
 		if (data.get("error") == null)
-			education.school += " " + Testkeys.getTimestamp();
+			education.school += " " + TestUtils.getTimestamp();
 		dataManager.setEducationUI(education);
 		pages.addEducationPage().addEducation(dataManager.getEducationUI());
 	}

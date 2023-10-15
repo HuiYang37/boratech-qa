@@ -5,7 +5,7 @@ import java.util.Map;
 import hui_automation.pojos.Experience;
 import hui_automation.utilities.DataManager;
 import hui_automation.utilities.PageManager;
-import hui_automation.utilities.Testkeys;
+import hui_automation.utilities.TestUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +27,7 @@ public class AddExperienceSteps {
 		Map<String, String> data = dataTable.asMap();
 		Experience experience = new Experience(data);
 		if (data.get("error") == null)
-			experience.company += " " + Testkeys.getTimestamp();
+			experience.company += " " + TestUtils.getTimestamp();
 		dataManager.setExperienceUI(experience);
 		pages.addExperiencePage().addExperience(dataManager.getExperienceUI());
 	}
