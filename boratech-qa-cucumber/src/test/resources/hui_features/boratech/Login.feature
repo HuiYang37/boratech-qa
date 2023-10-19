@@ -1,7 +1,7 @@
 @login
 Feature: Login
 
-  @ui @smoke @hero
+  @ui @smoke
   Scenario: Login Postive Test
     Given user is on the BoraTech homepage
     When user navigates to the Login page
