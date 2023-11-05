@@ -1,4 +1,4 @@
-package automation.hui.steps.ui.boratech;
+package automation.hui.steps.ui;
 
 
 import automation.hui.utilities.DataManager;

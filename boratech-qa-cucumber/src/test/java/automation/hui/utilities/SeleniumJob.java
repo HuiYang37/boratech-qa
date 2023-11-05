@@ -37,10 +37,11 @@ public class SeleniumJob {
 		return act;
 	}
 
-	public void takeScreen(Scenario scenario) {
+	public void saveScreenshot(Scenario scenario) {
 		String name = scenario.getName().replace(" ", "_") + "_" + scenario.getLine();
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String filePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name, TestUtils.getTimestamp());
+		String filePath = String.format("./src/test/resources/failed-test-screenshots/%s_%s.png", name,
+				TestUtils.getTimestamp());
 		try {
 			FileUtils.copyFile(screenshotFile, new File(filePath));
 		} catch (IOException e) {
