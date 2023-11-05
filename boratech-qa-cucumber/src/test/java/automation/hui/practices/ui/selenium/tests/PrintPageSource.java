@@ -65,7 +65,8 @@ public class PrintPageSource {
 			if (!Files.exists(Paths.get(dirPath)))
 				Files.createDirectory(Paths.get(dirPath));
 			// copy to file
-			File pageFile = new File("./src/test/resources/page-sources/failed-test.html");
+			File pageFile = new File(
+					"./src/test/resources/page-sources/failed-test-" + TestUtils.getTimestamp() + ".html");
 			FileWriter fw = new FileWriter(pageFile);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(page);
