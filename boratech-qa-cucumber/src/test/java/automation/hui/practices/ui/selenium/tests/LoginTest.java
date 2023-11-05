@@ -1,4 +1,4 @@
-package automation.hui.practices.ui.selenium.tests.boratech;
+package automation.hui.practices.ui.selenium.tests;
 
 import java.time.Duration;
 
@@ -47,6 +47,8 @@ public class LoginTest {
 			Assertions.assertEquals("Dashboard", title);
 			System.out.println("Test passed.");
 		} catch (Exception e) {
+			System.out.println("Test failed.");
+			e.printStackTrace();
 		} finally {
 			driver.quit();
 		}

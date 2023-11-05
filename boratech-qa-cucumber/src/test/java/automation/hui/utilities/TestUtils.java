@@ -13,7 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,10 +45,11 @@ public class TestUtils {
 	}
 
 	public static boolean containsElement(WebDriver driver, By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		try {
-			driver.findElement(locator);
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (TimeoutException e) {
 			return false;
 		}
 	}
@@ -71,14 +72,6 @@ public class TestUtils {
 		js.executeScript("window.scrollTo(0, 0)");
 	}
 
-	public static void terminate(WebDriver driver) {
-		try {
-			driver.quit();
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		}
-	}
-
 	public static void clickDropDown(WebDriver driver, By loctor) {
 		try {
 			driver.findElement(loctor).click();
@@ -89,10 +82,6 @@ public class TestUtils {
 			new Actions(driver).scrollToElement(driver.findElement(loctor)).moveToElement(driver.findElement(loctor))
 					.click().build().perform();
 		}
-	}
-
-	public static void waitUtilURL_Contains(WebDriver driver, String partialURL, int sec) {
-		new WebDriverWait(driver, Duration.ofSeconds(sec)).until(ExpectedConditions.urlContains(partialURL));
 	}
 
 }

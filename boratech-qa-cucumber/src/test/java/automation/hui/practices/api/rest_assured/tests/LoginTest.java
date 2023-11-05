@@ -1,4 +1,4 @@
-package automation.hui.practices.api.rest_assured.tests.boratech;
+package automation.hui.practices.api.rest_assured.tests;
 
 import java.util.HashMap;
 

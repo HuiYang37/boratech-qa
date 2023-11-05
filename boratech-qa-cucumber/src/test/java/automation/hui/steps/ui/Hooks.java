@@ -32,9 +32,9 @@ public class Hooks {
 	}
 
 	@AfterStep("@stop")
-	public void didStepFail(Scenario scenario) {
+	public void onFailed(Scenario scenario) {
 		if (scenario.isFailed()) {
-			sj.takeScreen(scenario);
+			sj.saveScreenshot(scenario);
 		}
 	}
 

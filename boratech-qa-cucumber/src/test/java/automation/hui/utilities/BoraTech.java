@@ -10,7 +10,6 @@ public class BoraTech {
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
-		TestUtils.waitUtilURL_Contains(driver, "dashboard", 10);
 	}
 
 }

@@ -2,7 +2,7 @@ package automation.hui.utilities;
 
 import org.openqa.selenium.WebDriver;
 
-import automation.hui.pages.bora_tech.*;
+import automation.hui.pages.*;
 
 public class PageManager {
 

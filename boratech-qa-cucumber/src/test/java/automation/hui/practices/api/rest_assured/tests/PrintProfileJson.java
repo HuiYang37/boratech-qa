@@ -1,11 +1,15 @@
-package automation.hui.practices.api.rest_assured.tests.boratech;
+package automation.hui.practices.api.rest_assured.tests;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 import automation.hui.utilities.BoraTechAPIs;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class ViewProfileTest {
+public class PrintProfileJson {
 
 	public static void main(String[] args) {
 		String email = "hui-pretender@outlook.com";
@@ -23,7 +27,18 @@ public class ViewProfileTest {
 			Response response = request.get(endpoint);
 
 			System.out.println(response.statusLine());
-			response.body().prettyPrint();
+
+			String profile = response.body().asPrettyString();
+			System.out.println(profile);
+
+			if (response.getStatusCode() == 200) {
+				File fileObj = new File("target/hui_profile.json");
+				FileWriter fw = new FileWriter(fileObj);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(profile);
+				bw.close();
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
